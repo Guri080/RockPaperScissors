@@ -27,20 +27,17 @@ game_img = [rock_img, paper_img, scissors_img]
 game_img_big = [big_rock_img, big_paper_img, big_scissors_img]
 
 
-## Computer's Pick ##
-def getCompPick():
+def getCompPick():  # computer's pick
     global comp_pick_num
     if comp_pick_num == 0:
         compPick = "rock"
     elif comp_pick_num == 1:
-        compPick = "scissors"
-    else:
         compPick = "paper"
+    else:
+        compPick = "scissors"
 
     return compPick
 
-
-## Methods ##
 
 def play():
     global playerScore
@@ -53,30 +50,30 @@ def play():
     if user_throw == comp_pick:
         Result.config(text='tie,you both select same')
     elif user_throw == 'rock' and comp_pick == 'paper':
-        Result.config(text='you lose,computer select paper')
+        Result.config(text='you lose,computer selected paper')
         compScore += 1
     elif user_throw == 'rock' and comp_pick == 'scissors':
-        Result.config(text='you win,computer select scissors')
+        Result.config(text='you win,computer selected scissors')
         playerScore += 1
     elif user_throw == 'paper' and comp_pick == 'scissors':
-        Result.config(text='you lose,computer select scissors')
+        Result.config(text='you lose,computer selected scissors')
         compScore += 1
     elif user_throw == 'paper' and comp_pick == 'rock':
-        Result.config(text='you win,computer select rock')
+        Result.config(text='you win,computer selected rock')
         playerScore += 1
     elif user_throw == 'scissors' and comp_pick == 'rock':
-        Result.config(text='you lose,computer select rock')
+        Result.config(text='you lose,computer selected rock')
         compScore += 1
     elif user_throw == 'scissors' and comp_pick == 'paper':
-        Result.config(text='you win ,computer select paper')
+        Result.config(text='you win ,computer selected paper')
         playerScore += 1
     else:
         Result.config(text='invalid: choose any one -- rock, paper, scissors')
 
-    print("you pressed play")
-    score.config(
-        text="Player " + str(playerScore) + ":" + str(compScore) + " Computer")  # Update the player vs computer Score
+    score.config(text="Player " + str(playerScore) + ":" + str(compScore) + " Computer")  # Update the player vs computer Score
+
     display_img_comp.config(image=game_img_big[comp_pick_num])
+    print("you pressed play: " + user_pick[comp_pick_num])
 
 
 def selected():  # This method represents the selected indicator in the radio buttons
